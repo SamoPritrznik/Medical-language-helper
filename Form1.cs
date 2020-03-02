@@ -10,11 +10,31 @@ using System.Windows.Forms;
 
 namespace medical_project_real
 {
-    public partial class Form1 : Form
+    public partial class Menu_form : Form
     {
-        public Form1()
+        public Menu_form()
         {
             InitializeComponent();
+        }
+
+        private void Edit_language_btn_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void Edit_category_btn_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void Edit_type_btn_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void Edit_question_btn_Click(object sender, EventArgs e)
+        {
+
         }
     }
 }

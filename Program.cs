@@ -16,7 +16,7 @@ namespace medical_project_real
         {
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
-            Application.Run(new Form1());
+            Application.Run(new Menu_form());
         }
     }
 }
