@@ -98,6 +98,9 @@
     <Compile Include="Type_form.Designer.cs">
       <DependentUpon>Type_form.cs</DependentUpon>
     </Compile>
+    <EmbeddedResource Include="Category_form.resx">
+      <DependentUpon>Category_form.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Form1.resx">
       <DependentUpon>Form1.cs</DependentUpon>
     </EmbeddedResource>

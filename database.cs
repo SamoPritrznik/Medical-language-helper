@@ -18,15 +18,17 @@ namespace medical_project_real
             
             try
             {
-                SQLiteConnection con = new SQLiteConnection("data source= questionsAnswers.db");
-                con.Open();
-                SQLiteCommand comm = new SQLiteCommand(con);
-                comm.CommandText = "INSERT INTO Languages(Name_Eng, Name_Native) VALUES (@1, @2);";
-                comm.Parameters.AddWithValue("@1", foreign_name);
-                comm.Parameters.AddWithValue("@2", mother_name);
-                comm.ExecuteNonQuery();
-                comm.Dispose();
-                con.Close();
+                using (SQLiteConnection con = new SQLiteConnection("data source= questionsAnswers.db"))
+                {
+                    con.Open();
+                    using (SQLiteCommand comm = new SQLiteCommand(con))
+                    {
+                        comm.CommandText = "INSERT INTO Languages(Name_Eng, Name_Native) VALUES (@1, @2);";
+                        comm.Parameters.AddWithValue("@1", foreign_name);
+                        comm.Parameters.AddWithValue("@2", mother_name);
+                        comm.ExecuteNonQuery();
+                    }
+                }
             }
             catch(SQLiteException ex)
             {
@@ -41,18 +43,21 @@ namespace medical_project_real
             try
             {
                 int i = 0;
-                SQLiteConnection con = new SQLiteConnection("data source= questionsAnswers.db");
-                con.Open();
-                SQLiteCommand comm = new SQLiteCommand(con);
-                comm.CommandText = "SELECT Name_Eng FROM languages;";
-                SQLiteDataReader rd = comm.ExecuteReader();
-                
-                while(rd.Read())
+                using (SQLiteConnection con = new SQLiteConnection("data source= questionsAnswers.db"))
                 {
-                    listek.Add(rd.GetString(0).ToString());
+                    con.Open();
+                    using (SQLiteCommand comm = new SQLiteCommand(con))
+                    {
+                        comm.CommandText = "SELECT Name_Eng FROM languages;";
+                        SQLiteDataReader rd = comm.ExecuteReader();
+
+                        while (rd.Read())
+                        {
+                            listek.Add(rd.GetString(0).ToString());
+                        }
+                    }
                 }
-                comm.Dispose();
-                con.Close();
+                
             }
             catch(SQLiteException ex)
             {
@@ -66,19 +71,21 @@ namespace medical_project_real
             int id = 0;
             try
             {
-                SQLiteConnection con = new SQLiteConnection("data source= questionsAnswers.db");
-                con.Open();
-                SQLiteCommand comm = new SQLiteCommand(con);
-                comm.CommandText = "SELECT id FROM languages WHERE Name_Eng = @1;";
-                comm.Parameters.AddWithValue("@1", xname);
-                SQLiteDataReader rd = comm.ExecuteReader();
-
-                while (rd.Read())
+                using (SQLiteConnection con = new SQLiteConnection("data source= questionsAnswers.db"))
                 {
-                    id = rd.GetInt32(0);
+                    con.Open();
+                    using (SQLiteCommand comm = new SQLiteCommand(con))
+                    {
+                        comm.CommandText = "SELECT id FROM languages WHERE Name_Eng = @1;";
+                        comm.Parameters.AddWithValue("@1", xname);
+                        SQLiteDataReader rd = comm.ExecuteReader();
+
+                        while (rd.Read())
+                        {
+                            id = rd.GetInt32(0);
+                        }
+                    }
                 }
-                comm.Dispose();
-                con.Close();
             }
             catch (SQLiteException ex)
             {
@@ -91,16 +98,18 @@ namespace medical_project_real
         {
             try
             {
-                SQLiteConnection con = new SQLiteConnection("data source= questionsAnswers.db");
-                con.Open();
-                SQLiteCommand comm = new SQLiteCommand(con);
-                comm.CommandText = "UPDATE languages SET Name_Eng = @1, Name_Native = @2 WHERE id = @3;";
-                comm.Parameters.AddWithValue("@1", xname_eng);
-                comm.Parameters.AddWithValue("@2", xname_nat);
-                comm.Parameters.AddWithValue("@3", id);
-                comm.ExecuteNonQuery();
-                comm.Dispose();
-                con.Close();
+                using (SQLiteConnection con = new SQLiteConnection("data source= questionsAnswers.db"))
+                {
+                    con.Open();
+                    using (SQLiteCommand comm = new SQLiteCommand(con))
+                    {
+                        comm.CommandText = "UPDATE languages SET Name_Eng = @1, Name_Native = @2 WHERE id = @3;";
+                        comm.Parameters.AddWithValue("@1", xname_eng);
+                        comm.Parameters.AddWithValue("@2", xname_nat);
+                        comm.Parameters.AddWithValue("@3", id);
+                        comm.ExecuteNonQuery();
+                    }
+                }
             }
             catch (SQLiteException ex)
             {
@@ -112,14 +121,16 @@ namespace medical_project_real
         {
             try
             {
-                SQLiteConnection con = new SQLiteConnection("data source= questionsAnswers.db");
-                con.Open();
-                SQLiteCommand comm = new SQLiteCommand(con);
-                comm.CommandText = "DELETE FROM languages WHERE id = @1;";
-                comm.Parameters.AddWithValue("@1", id);
-                comm.ExecuteNonQuery();
-                comm.Dispose();
-                con.Close();
+                using (SQLiteConnection con = new SQLiteConnection("data source= questionsAnswers.db"))
+                {
+                    con.Open();
+                    using (SQLiteCommand comm = new SQLiteCommand(con))
+                    {
+                        comm.CommandText = "DELETE FROM languages WHERE id = @1;";
+                        comm.Parameters.AddWithValue("@1", id);
+                        comm.ExecuteNonQuery();
+                    }
+                }
             }
             catch (SQLiteException ex)
             {
@@ -130,6 +141,104 @@ namespace medical_project_real
         //
 
         // Categories
+
+        public List<String> get_categories()
+        {
+            List<String> listek = new List<String>();
+            try
+            {
+                using (SQLiteConnection con = new SQLiteConnection("data source= questionsAnswers.db"))
+                {
+                    con.Open();
+                    using (SQLiteCommand comm = new SQLiteCommand(con))
+                    {
+                        comm.CommandText = "SELECT Description FROM Categories";
+                        SQLiteDataReader rd = comm.ExecuteReader();
+                        while (rd.Read())
+                        {
+                            listek.Add(rd.GetString(0).ToString());
+                        }
+                    }
+                }
+            }
+            catch (SQLiteException e)
+            {
+                MessageBox.Show(e.ToString());
+            }
+            return listek;
+        }
+
+        public void new_category(string xdesc)
+        {
+            try
+            {
+                using (SQLiteConnection con = new SQLiteConnection("data source= questionsAnswers.db"))
+                {
+                    con.Open();
+                    using (SQLiteCommand comm = new SQLiteCommand(con))
+                    {
+                        comm.CommandText = "INSERT INTO Categories(Description) VALUES(@1)";
+                        comm.Parameters.AddWithValue("@1", xdesc);
+                        comm.ExecuteNonQuery();
+                    }
+                }
+            }
+            catch (SQLiteException e)
+            {
+                MessageBox.Show(e.ToString());
+            }
+        }
+
+        public int get_category_id(string xdesc)
+        {
+            int id = 0;
+            try
+            {
+                using (SQLiteConnection con = new SQLiteConnection("data source= questionsAnswers.db"))
+                {
+                    con.Open();
+                    using (SQLiteCommand comm = new SQLiteCommand(con))
+                    {
+                        comm.CommandText = "SELECT id FROM Categories WHERE Description = @1";
+                        comm.Parameters.AddWithValue("@1", xdesc);
+                        SQLiteDataReader rd = comm.ExecuteReader();
+                        while (rd.Read())
+                        {
+                            id = rd.GetInt32(0);
+                        }
+                        
+                    }
+                }
+            }
+            catch (SQLiteException e)
+            {
+                MessageBox.Show(e.ToString());
+            }
+            return id;
+        }
+
+        public void new_translation_cat_lan(string trans, int lan_id, int cat_id)
+        {
+            try
+            {
+                using (SQLiteConnection con = new SQLiteConnection("data source= questionsAnswers.db"))
+                {
+                    con.Open();
+                    using (SQLiteCommand comm = new SQLiteCommand(con))
+                    {
+                        comm.CommandText = "INSERT INTO Categories_Languages(Category_id, Language_id, Text) VALUES (@1, @2, @3)";
+                        comm.Parameters.AddWithValue("@1", cat_id);
+                        comm.Parameters.AddWithValue("@2", lan_id);
+                        comm.Parameters.AddWithValue("@3", trans);
+                        comm.ExecuteNonQuery();
+                    }
+                }
+            }
+            catch (SQLiteException e)
+            {
+                MessageBox.Show(e.ToString());
+            }
+        }
 
         //
 
