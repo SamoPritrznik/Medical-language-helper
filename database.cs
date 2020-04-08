@@ -240,6 +240,212 @@ namespace medical_project_real
             }
         }
 
+        public int get_tran_category_id(string xdesc)
+        {
+            int id = 0;
+            try
+            {
+                using (SQLiteConnection con = new SQLiteConnection("data source= questionsAnswers.db"))
+                {
+                    con.Open();
+                    using (SQLiteCommand comm = new SQLiteCommand(con))
+                    {
+                        comm.CommandText = "SELECT cl.category_id FROM Categories_Languages cl INNER JOIN Categories c ON c.id = cl.category_id WHERE c.Description = @1";
+                        comm.Parameters.AddWithValue("@1", xdesc);
+                        SQLiteDataReader rd = comm.ExecuteReader();
+                        while (rd.Read())
+                        {
+                            id = rd.GetInt32(0);
+                        }
+
+                    }
+                }
+            }
+            catch (SQLiteException e)
+            {
+                MessageBox.Show(e.ToString());
+            }
+            return id;
+        }
+
+        public int get_tran_language_id(string xdesc)
+        {
+            int id = 0;
+            try
+            {
+                using (SQLiteConnection con = new SQLiteConnection("data source= questionsAnswers.db"))
+                {
+                    con.Open();
+                    using (SQLiteCommand comm = new SQLiteCommand(con))
+                    {
+                        comm.CommandText = "SELECT cl.language_id FROM Categories_Languages cl INNER JOIN Languages l ON l.id = cl.language_id WHERE l.Name_Eng = @1";
+                        comm.Parameters.AddWithValue("@1", xdesc);
+                        SQLiteDataReader rd = comm.ExecuteReader();
+                        while (rd.Read())
+                        {
+                            id = rd.GetInt32(0);
+                        }
+
+                    }
+                }
+            }
+            catch (SQLiteException e)
+            {
+                MessageBox.Show(e.ToString());
+            }
+            return id;
+        }
+
+        public List<String> get_cat_translation()
+        {
+            List<String> listek = new List<String>();
+            try
+            {
+                using (SQLiteConnection con = new SQLiteConnection("data source= questionsAnswers.db"))
+                {
+                    con.Open();
+                    using (SQLiteCommand comm = new SQLiteCommand(con))
+                    {
+                        comm.CommandText = "SELECT c.Description FROM Categories c INNER JOIN Categories_Languages cl ON cl.category_id = c.id";
+                        using (SQLiteDataReader rd = comm.ExecuteReader())
+                        {
+                            while (rd.Read())
+                            {
+                                listek.Add(rd.GetString(0).ToString());
+                            }
+                            
+                        }
+                    }
+                }
+                
+            }
+            catch (SQLiteException e)
+            {
+                MessageBox.Show(e.ToString());
+            }
+            return listek;
+        }
+
+        public List<String> get_lan_translation()
+        {
+            List<String> listek = new List<String>();
+            try
+            {
+                using (SQLiteConnection con = new SQLiteConnection("data source= questionsAnswers.db"))
+                {
+                    con.Open();
+                    using (SQLiteCommand comm = new SQLiteCommand(con))
+                    {
+                        comm.CommandText = "SELECT l.Name_Eng FROM languages l INNER JOIN Categories_Languages cl ON cl.language_id = l.id";
+                        using (SQLiteDataReader rd = comm.ExecuteReader())
+                        {
+                            while (rd.Read())
+                            {
+                                listek.Add(rd.GetString(0).ToString());
+                            }
+                        }
+                    }
+                }
+
+            }
+            catch (SQLiteException e)
+            {
+                MessageBox.Show(e.ToString());
+            }
+            return listek;
+        }
+
+        public void new_cat(string xname, int xid)
+        {
+            try
+            {
+                using (SQLiteConnection con = new SQLiteConnection("data source= questionsAnswers.db"))
+                {
+                    con.Open();
+                    using (SQLiteCommand comm = new SQLiteCommand(con))
+                    {
+                        comm.CommandText = "UPDATE Categories SET Description = @1 WHERE id = @2";
+                        comm.Parameters.AddWithValue("@1", xname);
+                        comm.Parameters.AddWithValue("@2", xid);
+                        comm.ExecuteNonQuery();
+                    }
+                }
+            }
+            catch (SQLiteException e)
+            {
+                MessageBox.Show(e.ToString());
+            }
+        }
+
+        public void new_trans(string trans, int cat, int lan)
+        {
+            try
+            {
+                using (SQLiteConnection con = new SQLiteConnection("data source= questionsAnswers.db"))
+                {
+                    con.Open();
+                    using (SQLiteCommand comm = new SQLiteCommand(con))
+                    {
+                        comm.CommandText = "UPDATE Categories_Languages SET Text = @1 WHERE category_id = @2 AND language_id = @3;";
+                        comm.Parameters.AddWithValue("@1", trans);
+                        comm.Parameters.AddWithValue("@2", cat);
+                        comm.Parameters.AddWithValue("@3", lan);
+                        comm.ExecuteNonQuery();
+                    }
+                }
+            }
+            catch (SQLiteException e)
+            {
+                MessageBox.Show(e.ToString());
+            }
+        }
+
+        public void del_cat(int xid)
+        {
+            try
+            {
+                using (SQLiteConnection con = new SQLiteConnection("data source= questionsAnswers.db"))
+                {
+                    con.Open();
+                    using (SQLiteCommand comm = new SQLiteCommand(con))
+                    {
+                        comm.CommandText = "DELETE FROM Categories WHERE id = @1;";
+                        comm.Parameters.AddWithValue("@1", xid);
+                        comm.ExecuteNonQuery();
+                        comm.CommandText = "DELETE FROM Categories_Languages WHERE category_id = @1;";
+                        comm.Parameters.AddWithValue("@1", xid);
+                        comm.ExecuteNonQuery();
+                    }
+                }
+            }
+            catch (SQLiteException e)
+            {
+                MessageBox.Show(e.ToString());
+            }
+        }
+
+        public void del_trans(int cat, int lan)
+        {
+            try
+            {
+                using (SQLiteConnection con = new SQLiteConnection("data source= questionsAnswers.db"))
+                {
+                    con.Open();
+                    using (SQLiteCommand comm = new SQLiteCommand(con))
+                    {
+                        comm.CommandText = "DELETE FROM Categories_Languages WHERE category_id = @1 AND language_id = @2;";
+                        comm.Parameters.AddWithValue("@1", cat);
+                        comm.Parameters.AddWithValue("@2", lan);
+                        comm.ExecuteNonQuery();
+                    }
+                }
+            }
+            catch (SQLiteException e)
+            {
+                MessageBox.Show(e.ToString());
+            }
+        }
+
         //
 
         // Types

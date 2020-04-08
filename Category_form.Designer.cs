@@ -52,6 +52,10 @@
             this.Btn_back = new System.Windows.Forms.Button();
             this.Txtbx_cat_old = new System.Windows.Forms.TextBox();
             this.label11 = new System.Windows.Forms.Label();
+            this.label9 = new System.Windows.Forms.Label();
+            this.ComboBx_cat1_lan_old = new System.Windows.Forms.ComboBox();
+            this.Btn_del_cat = new System.Windows.Forms.Button();
+            this.Btn_del_trans = new System.Windows.Forms.Button();
             this.SuspendLayout();
             // 
             // label1
@@ -97,7 +101,7 @@
             // 
             // Txtbx_tran_old
             // 
-            this.Txtbx_tran_old.Location = new System.Drawing.Point(459, 297);
+            this.Txtbx_tran_old.Location = new System.Drawing.Point(459, 348);
             this.Txtbx_tran_old.Name = "Txtbx_tran_old";
             this.Txtbx_tran_old.Size = new System.Drawing.Size(100, 20);
             this.Txtbx_tran_old.TabIndex = 6;
@@ -113,7 +117,7 @@
             // ComBx_lan_old
             // 
             this.ComBx_lan_old.FormattingEnabled = true;
-            this.ComBx_lan_old.Location = new System.Drawing.Point(459, 242);
+            this.ComBx_lan_old.Location = new System.Drawing.Point(459, 293);
             this.ComBx_lan_old.Name = "ComBx_lan_old";
             this.ComBx_lan_old.Size = new System.Drawing.Size(121, 21);
             this.ComBx_lan_old.TabIndex = 9;
@@ -173,7 +177,7 @@
             // label7
             // 
             this.label7.AutoSize = true;
-            this.label7.Location = new System.Drawing.Point(456, 281);
+            this.label7.Location = new System.Drawing.Point(456, 332);
             this.label7.Name = "label7";
             this.label7.Size = new System.Drawing.Size(66, 13);
             this.label7.TabIndex = 16;
@@ -182,7 +186,7 @@
             // label8
             // 
             this.label8.AutoSize = true;
-            this.label8.Location = new System.Drawing.Point(456, 226);
+            this.label8.Location = new System.Drawing.Point(456, 277);
             this.label8.Name = "label8";
             this.label8.Size = new System.Drawing.Size(59, 13);
             this.label8.TabIndex = 17;
@@ -229,7 +233,7 @@
             // 
             // Btn_sort
             // 
-            this.Btn_sort.Location = new System.Drawing.Point(459, 323);
+            this.Btn_sort.Location = new System.Drawing.Point(459, 374);
             this.Btn_sort.Name = "Btn_sort";
             this.Btn_sort.Size = new System.Drawing.Size(75, 23);
             this.Btn_sort.TabIndex = 23;
@@ -263,11 +267,52 @@
             this.label11.TabIndex = 26;
             this.label11.Text = "Vnesi novo kategorijo:";
             // 
+            // label9
+            // 
+            this.label9.AutoSize = true;
+            this.label9.Location = new System.Drawing.Point(456, 226);
+            this.label9.Name = "label9";
+            this.label9.Size = new System.Drawing.Size(84, 13);
+            this.label9.TabIndex = 28;
+            this.label9.Text = "Izberi kategorijo:";
+            // 
+            // ComboBx_cat1_lan_old
+            // 
+            this.ComboBx_cat1_lan_old.FormattingEnabled = true;
+            this.ComboBx_cat1_lan_old.Location = new System.Drawing.Point(459, 242);
+            this.ComboBx_cat1_lan_old.Name = "ComboBx_cat1_lan_old";
+            this.ComboBx_cat1_lan_old.Size = new System.Drawing.Size(121, 21);
+            this.ComboBx_cat1_lan_old.TabIndex = 27;
+            // 
+            // Btn_del_cat
+            // 
+            this.Btn_del_cat.Location = new System.Drawing.Point(459, 198);
+            this.Btn_del_cat.Name = "Btn_del_cat";
+            this.Btn_del_cat.Size = new System.Drawing.Size(75, 23);
+            this.Btn_del_cat.TabIndex = 29;
+            this.Btn_del_cat.Text = "Izbriši";
+            this.Btn_del_cat.UseVisualStyleBackColor = true;
+            this.Btn_del_cat.Click += new System.EventHandler(this.Btn_del_cat_Click);
+            // 
+            // Btn_del_trans
+            // 
+            this.Btn_del_trans.Location = new System.Drawing.Point(459, 403);
+            this.Btn_del_trans.Name = "Btn_del_trans";
+            this.Btn_del_trans.Size = new System.Drawing.Size(75, 23);
+            this.Btn_del_trans.TabIndex = 30;
+            this.Btn_del_trans.Text = "Izbriši";
+            this.Btn_del_trans.UseVisualStyleBackColor = true;
+            this.Btn_del_trans.Click += new System.EventHandler(this.Btn_del_trans_Click);
+            // 
             // Category_form
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(800, 450);
+            this.Controls.Add(this.Btn_del_trans);
+            this.Controls.Add(this.Btn_del_cat);
+            this.Controls.Add(this.label9);
+            this.Controls.Add(this.ComboBx_cat1_lan_old);
             this.Controls.Add(this.label11);
             this.Controls.Add(this.Txtbx_cat_old);
             this.Controls.Add(this.Btn_back);
@@ -325,5 +370,9 @@
         private System.Windows.Forms.Button Btn_back;
         private System.Windows.Forms.TextBox Txtbx_cat_old;
         private System.Windows.Forms.Label label11;
+        private System.Windows.Forms.Label label9;
+        private System.Windows.Forms.ComboBox ComboBx_cat1_lan_old;
+        private System.Windows.Forms.Button Btn_del_cat;
+        private System.Windows.Forms.Button Btn_del_trans;
     }
 }
