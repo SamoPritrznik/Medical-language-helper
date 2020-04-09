@@ -97,6 +97,5 @@ namespace medical_project_real
             
             ComBx_lan_old.Items.AddRange(dat.get_languages().ToArray());
         }
-
     }
 }
