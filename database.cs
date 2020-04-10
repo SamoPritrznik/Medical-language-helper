@@ -450,6 +450,135 @@ namespace medical_project_real
 
         // Types
 
+        public void create_type_quest(string xname)
+        {
+            try
+            {
+                using (SQLiteConnection con = new SQLiteConnection("data source= questionsAnswers.db"))
+                {
+                    con.Open();
+                    using (SQLiteCommand comm = new SQLiteCommand(con))
+                    {
+                        comm.CommandText = "INSERT INTO Question_Types(Type) VALUES (@1)";
+                        comm.Parameters.AddWithValue("@1", xname);
+                        comm.ExecuteNonQuery();
+                    }
+                }
+            }
+            catch(SQLiteException e)
+            {
+                MessageBox.Show(e.ToString());
+            }
+        }
+
+        public List<String> get_types()
+        {
+            List<String> listek = new List<String>();
+            try
+            {
+                using (SQLiteConnection con = new SQLiteConnection("data source= questionsAnswers.db"))
+                {
+                    con.Open();
+                    using (SQLiteCommand comm = new SQLiteCommand(con))
+                    {
+                        comm.CommandText = "SELECT Type FROM Question_Types";
+                        SQLiteDataReader rd = comm.ExecuteReader();
+                        while (rd.Read())
+                        {
+                            listek.Add(rd.GetString(0).ToString());
+                        }
+                    }
+                }
+            }
+            catch(SQLiteException e)
+            {
+                MessageBox.Show(e.ToString());
+            }
+            return listek;
+        }
+
+        public int get_type_id(string xname)
+        {
+            int id = 0;
+            try
+            {
+                using (SQLiteConnection con = new SQLiteConnection("data source= questionsAnswers.db"))
+                {
+                    con.Open();
+                    using (SQLiteCommand comm = new SQLiteCommand(con))
+                    {
+                        comm.CommandText = "SELECT id FROM Question_Types WHERE Type = @1";
+                        comm.Parameters.AddWithValue("@1", xname);
+                        SQLiteDataReader rd = comm.ExecuteReader();
+                        while (rd.Read())
+                        {
+                            id = rd.GetInt32(0);
+                        }
+                    }
+                }
+            }
+            catch (SQLiteException e)
+            {
+                MessageBox.Show(e.ToString());
+            }
+            return id;
+        }
+
+        public void update_type_quest(string xname, int id)
+        {
+            try
+            {
+                using (SQLiteConnection con = new SQLiteConnection("data source= questionsAnswers.db"))
+                {
+                    con.Open();
+                    using (SQLiteCommand comm = new SQLiteCommand(con))
+                    {
+                        comm.CommandText = "UPDATE Question_Types SET Type = @1 WHERE id = @2";
+                        comm.Parameters.AddWithValue("@1", xname);
+                        comm.Parameters.AddWithValue("@2", id);
+                        comm.ExecuteNonQuery();
+                    }
+                }
+            }
+            catch (SQLiteException e)
+            {
+                MessageBox.Show(e.ToString());
+            }
+        }
+
+        public void delete_type_quest(int id)
+        {
+            try
+            {
+                using (SQLiteConnection con = new SQLiteConnection("data source= questionsAnswers.db"))
+                {
+                    con.Open();
+                    using (SQLiteCommand comm = new SQLiteCommand(con))
+                    {
+                        comm.CommandText = "DELETE FROM Questions_Languages WHERE id = (SELECT l.id FROM Questions_Languages l INNER JOIN Questions q ON q.id = l.Question_id WHERE q.Question_Type_id = @1);";
+                        comm.Parameters.AddWithValue("@1", id);
+                        comm.ExecuteNonQuery();
+
+                        comm.CommandText = "DELETE FROM Questions_Answers WHERE Question_id = (SELECT q.id FROM Questions q WHERE Question_Type_id = @1);";
+                        comm.Parameters.AddWithValue("@1", id);
+                        comm.ExecuteNonQuery();
+
+                        comm.CommandText = "DELETE FROM Questions WHERE Question_Type_id = @1";
+                        comm.Parameters.AddWithValue("@1", id);
+                        comm.ExecuteNonQuery();
+
+                        comm.CommandText = "DELETE FROM Question_Types WHERE id = @1";
+                        comm.Parameters.AddWithValue("@1", id);
+                        comm.ExecuteNonQuery();
+                    }
+                }
+            }
+            catch (SQLiteException e)
+            {
+                MessageBox.Show(e.ToString());
+            }
+        }
+
         //
 
         // Questions

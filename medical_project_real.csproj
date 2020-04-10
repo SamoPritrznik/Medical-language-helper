@@ -119,6 +119,9 @@
     <EmbeddedResource Include="Question_form.resx">
       <DependentUpon>Question_form.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="Type_form.resx">
+      <DependentUpon>Type_form.cs</DependentUpon>
+    </EmbeddedResource>
     <None Include="packages.config" />
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>
