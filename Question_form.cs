@@ -36,5 +36,65 @@ namespace medical_project_real
         {
 
         }
+
+        private void Btn_delete_quest_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void Btn_delete_quest_lan_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void Btn_create_answ_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void Btn_create_trans_answer_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void Btn_create_answ_lan_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void Btn_sort_answ_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void Btn_delete_answ_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void Btn_sort_answ_lan_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void Btn_delete_answ_lan_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void Btn_sort_answ_quest_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void Btn_delete_answ_quest_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void Btn_back_Click(object sender, EventArgs e)
+        {
+
+        }
     }
 }
