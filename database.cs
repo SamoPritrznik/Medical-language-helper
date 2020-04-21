@@ -524,6 +524,8 @@ namespace medical_project_real
             return id;
         }
 
+
+
         public void update_type_quest(string xname, int id)
         {
             try
@@ -583,8 +585,255 @@ namespace medical_project_real
 
         // Questions
 
-        
+        public void insert_quest(string xname, int type_id, int category_id)
+        {
+            try
+            {
+                using (SQLiteConnection con = new SQLiteConnection("data source= questionsAnswers.db"))
+                {
+                    con.Open();
+                    using (SQLiteCommand comm = new SQLiteCommand(con))
+                    {
+                        comm.CommandText = "INSERT INTO Questions(Question_Type_id, Description, Category_id) VALUES (@1, @2, @3)";
+                        comm.Parameters.AddWithValue("@1", type_id);
+                        comm.Parameters.AddWithValue("@2", xname);
+                        comm.Parameters.AddWithValue("@3", category_id);
+                        comm.ExecuteNonQuery();
+                    }
+                }
+            }
+            catch (SQLiteException e)
+            {
+                MessageBox.Show(e.ToString());
+            }
+        }
 
+        public void insert_quest_trans(string xname, int quest_id, int lang_id)
+        {
+            try
+            {
+                using (SQLiteConnection con = new SQLiteConnection("data source= questionsAnswers.db"))
+                {
+                    con.Open();
+                    using (SQLiteCommand comm = new SQLiteCommand(con))
+                    {
+                        comm.CommandText = "INSERT INTO Questions_Languages(Question_id, Language_id, text) VALUES (@1, @2, @3)";
+                        comm.Parameters.AddWithValue("@1", quest_id);
+                        comm.Parameters.AddWithValue("@2", lang_id);
+                        comm.Parameters.AddWithValue("@3", xname);
+                        comm.ExecuteNonQuery();
+                    }
+                }
+            }
+            catch (SQLiteException e)
+            {
+                MessageBox.Show(e.ToString());
+            }
+        }
+
+        public List<String> get_quest()
+        {
+            List<String> listek = new List<String>();
+            try
+            {
+                using (SQLiteConnection con = new SQLiteConnection("data source= questionsAnswers.db"))
+                {
+                    con.Open();
+                    using (SQLiteCommand comm = new SQLiteCommand(con))
+                    {
+                        comm.CommandText = "SELECT description FROM Questions";
+                        SQLiteDataReader rd = comm.ExecuteReader();
+                        while (rd.Read())
+                        {
+                            listek.Add(rd.GetString(0).ToString());
+                        }
+                    }
+                }
+            }
+            catch (SQLiteException e)
+            {
+                MessageBox.Show(e.ToString());
+            }
+            return listek;
+        }
+
+        public int get_quest_id(string xname)
+        {
+            int id = 0;
+            try
+            {
+                using (SQLiteConnection con = new SQLiteConnection("data source= questionsAnswers.db"))
+                {
+                    con.Open();
+                    using (SQLiteCommand comm = new SQLiteCommand(con))
+                    {
+                        comm.CommandText = "SELECT id FROM Questions WHERE Description = @1";
+                        comm.Parameters.AddWithValue("@1", xname);
+                        SQLiteDataReader rd = comm.ExecuteReader();
+                        while (rd.Read())
+                        {
+                            id = rd.GetInt32(0);
+                        }
+                    }
+                }
+            }
+            catch (SQLiteException e)
+            {
+                MessageBox.Show(e.ToString());
+            }
+            return id;
+        }
+
+        public void update_quest(string xname, int quest_id, int type, int category)
+        {
+            try
+            {
+                using (SQLiteConnection con = new SQLiteConnection("data source= questionsAnswers.db"))
+                {
+                    con.Open();
+                    using (SQLiteCommand comm = new SQLiteCommand(con))
+                    {
+                        comm.CommandText = "UPDATE Questions SET description = @1 WHERE id = @2 AND Question_type_id = @3 AND Category_id = @4";
+                        comm.Parameters.AddWithValue("@1", xname);
+                        comm.Parameters.AddWithValue("@2", quest_id);
+                        comm.Parameters.AddWithValue("@2", type);
+                        comm.Parameters.AddWithValue("@2", category);
+                        comm.ExecuteNonQuery();
+                    }
+                }
+            }
+            catch (SQLiteException e)
+            {
+                MessageBox.Show(e.ToString());
+            }
+        }
+
+        public void delete_quest(int id)
+        {
+            try
+            {
+                using (SQLiteConnection con = new SQLiteConnection("data source= questionsAnswers.db"))
+                {
+                    con.Open();
+                    using (SQLiteCommand comm = new SQLiteCommand(con))
+                    {
+                        comm.CommandText = "DELETE FROM Questions_Languages WHERE Question_id = @1;";
+                        comm.Parameters.AddWithValue("@1", id);
+                        comm.ExecuteNonQuery();
+
+                        comm.CommandText = "DELETE FROM Questions_Answers WHERE Question_id = @1;";
+                        comm.Parameters.AddWithValue("@1", id);
+                        comm.ExecuteNonQuery();
+
+                        comm.CommandText = "DELETE FROM Questions WHERE id = @1";
+                        comm.Parameters.AddWithValue("@1", id);
+                        comm.ExecuteNonQuery();
+                    }
+                }
+            }
+            catch (SQLiteException e)
+            {
+                MessageBox.Show(e.ToString());
+            }
+        }
+
+        public List<String> get_quest_trans()
+        {
+            List<String> listek = new List<String>();
+            try
+            {
+                using (SQLiteConnection con = new SQLiteConnection("data source= questionsAnswers.db"))
+                {
+                    con.Open();
+                    using (SQLiteCommand comm = new SQLiteCommand(con))
+                    {
+                        comm.CommandText = "SELECT text FROM Questions_languages";
+                        SQLiteDataReader rd = comm.ExecuteReader();
+                        while (rd.Read())
+                        {
+                            listek.Add(rd.GetString(0).ToString());
+                        }
+                    }
+                }
+            }
+            catch (SQLiteException e)
+            {
+                MessageBox.Show(e.ToString());
+            }
+            return listek;
+        }
+
+        public int get_quest_trans_id(string xname)
+        {
+            int id = 0;
+            try
+            {
+                using (SQLiteConnection con = new SQLiteConnection("data source= questionsAnswers.db"))
+                {
+                    con.Open();
+                    using (SQLiteCommand comm = new SQLiteCommand(con))
+                    {
+                        comm.CommandText = "SELECT id FROM Question_Languages WHERE Text = @1";
+                        comm.Parameters.AddWithValue("@1", xname);
+                        SQLiteDataReader rd = comm.ExecuteReader();
+                        while (rd.Read())
+                        {
+                            id = rd.GetInt32(0);
+                        }
+                    }
+                }
+            }
+            catch (SQLiteException e)
+            {
+                MessageBox.Show(e.ToString());
+            }
+            return id;
+        }
+
+        public void update_quest_trans(string xname, int quest_id, int lang, int trans)
+        {
+            try
+            {
+                using (SQLiteConnection con = new SQLiteConnection("data source= questionsAnswers.db"))
+                {
+                    con.Open();
+                    using (SQLiteCommand comm = new SQLiteCommand(con))
+                    {
+                        comm.CommandText = "UPDATE Questions SET text = @1 WHERE id = @2 AND Question_id = @3 AND Language_id = @4";
+                        comm.Parameters.AddWithValue("@1", xname);
+                        comm.Parameters.AddWithValue("@2", trans);
+                        comm.Parameters.AddWithValue("@2", quest_id);
+                        comm.Parameters.AddWithValue("@2", trans);
+                        comm.ExecuteNonQuery();
+                    }
+                }
+            }
+            catch (SQLiteException e)
+            {
+                MessageBox.Show(e.ToString());
+            }
+        }
+
+        public void delete_quest_trans_id(int id)
+        {
+            try
+            {
+                using (SQLiteConnection con = new SQLiteConnection("data source= questionsAnswers.db"))
+                {
+                    con.Open();
+                    using (SQLiteCommand comm = new SQLiteCommand(con))
+                    {
+                        comm.CommandText = "DELETE FROM Questions_Languages WHERE id = @1;";
+                        comm.Parameters.AddWithValue("@1", id);
+                        comm.ExecuteNonQuery();
+                    }
+                }
+            }
+            catch (SQLiteException e)
+            {
+                MessageBox.Show(e.ToString());
+            }
+        }
         //
     }
 

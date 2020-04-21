@@ -14,7 +14,6 @@ namespace medical_project_real
     {
 
         databases dat = new databases();
-        string id_languages;
 
         public Language_form()
         {
