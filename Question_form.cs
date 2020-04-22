@@ -109,7 +109,7 @@ namespace medical_project_real
 
         private void Btn_create_answ_Click(object sender, EventArgs e)
         {
-
+            
         }
 
         private void Btn_create_trans_answer_Click(object sender, EventArgs e)

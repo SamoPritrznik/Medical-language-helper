@@ -82,6 +82,7 @@
             this.Btn_delete_answ_quest = new System.Windows.Forms.Button();
             this.Btn_delete_answ_lan = new System.Windows.Forms.Button();
             this.Btn_back = new System.Windows.Forms.Button();
+            this.comboBox1 = new System.Windows.Forms.ComboBox();
             this.SuspendLayout();
             // 
             // TxtBx_Quest
@@ -393,7 +394,7 @@
             // 
             // Btn_sort_answ_quest
             // 
-            this.Btn_sort_answ_quest.Location = new System.Drawing.Point(583, 421);
+            this.Btn_sort_answ_quest.Location = new System.Drawing.Point(583, 450);
             this.Btn_sort_answ_quest.Name = "Btn_sort_answ_quest";
             this.Btn_sort_answ_quest.Size = new System.Drawing.Size(75, 23);
             this.Btn_sort_answ_quest.TabIndex = 51;
@@ -522,7 +523,7 @@
             // 
             // Btn_delete_answ_quest
             // 
-            this.Btn_delete_answ_quest.Location = new System.Drawing.Point(583, 450);
+            this.Btn_delete_answ_quest.Location = new System.Drawing.Point(583, 479);
             this.Btn_delete_answ_quest.Name = "Btn_delete_answ_quest";
             this.Btn_delete_answ_quest.Size = new System.Drawing.Size(75, 23);
             this.Btn_delete_answ_quest.TabIndex = 64;
@@ -550,11 +551,20 @@
             this.Btn_back.UseVisualStyleBackColor = true;
             this.Btn_back.Click += new System.EventHandler(this.Btn_back_Click);
             // 
+            // comboBox1
+            // 
+            this.comboBox1.FormattingEnabled = true;
+            this.comboBox1.Location = new System.Drawing.Point(583, 423);
+            this.comboBox1.Name = "comboBox1";
+            this.comboBox1.Size = new System.Drawing.Size(121, 21);
+            this.comboBox1.TabIndex = 67;
+            // 
             // Question_form
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(751, 522);
+            this.Controls.Add(this.comboBox1);
             this.Controls.Add(this.Btn_back);
             this.Controls.Add(this.Btn_delete_answ_lan);
             this.Controls.Add(this.Btn_delete_answ_quest);
@@ -671,5 +681,6 @@
         private System.Windows.Forms.Button Btn_delete_answ_quest;
         private System.Windows.Forms.Button Btn_delete_answ_lan;
         private System.Windows.Forms.Button Btn_back;
+        private System.Windows.Forms.ComboBox comboBox1;
     }
 }
