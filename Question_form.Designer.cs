@@ -52,34 +52,32 @@
             this.CmbBx_edit_quest_3 = new System.Windows.Forms.ComboBox();
             this.Btn_create_answ = new System.Windows.Forms.Button();
             this.label1 = new System.Windows.Forms.Label();
-            this.textBox1 = new System.Windows.Forms.TextBox();
+            this.Tx_create_answer = new System.Windows.Forms.TextBox();
             this.Btn_create_trans_answer = new System.Windows.Forms.Button();
             this.label4 = new System.Windows.Forms.Label();
-            this.comboBox1 = new System.Windows.Forms.ComboBox();
-            this.comboBox2 = new System.Windows.Forms.ComboBox();
-            this.textBox2 = new System.Windows.Forms.TextBox();
+            this.CmBx_Language_create_tran = new System.Windows.Forms.ComboBox();
+            this.CmBx_Answer_create_tran = new System.Windows.Forms.ComboBox();
+            this.Tx_create_answer_tran = new System.Windows.Forms.TextBox();
             this.Btn_create_answ_lan = new System.Windows.Forms.Button();
-            this.comboBox3 = new System.Windows.Forms.ComboBox();
             this.label7 = new System.Windows.Forms.Label();
-            this.comboBox4 = new System.Windows.Forms.ComboBox();
-            this.comboBox5 = new System.Windows.Forms.ComboBox();
+            this.CmBx_answer_create_con = new System.Windows.Forms.ComboBox();
+            this.CmBx_question_create_con = new System.Windows.Forms.ComboBox();
             this.Btn_delete_quest_lan = new System.Windows.Forms.Button();
             this.Btn_delete_quest = new System.Windows.Forms.Button();
             this.Btn_sort_answ_quest = new System.Windows.Forms.Button();
-            this.comboBox6 = new System.Windows.Forms.ComboBox();
             this.label8 = new System.Windows.Forms.Label();
-            this.comboBox7 = new System.Windows.Forms.ComboBox();
-            this.comboBox8 = new System.Windows.Forms.ComboBox();
+            this.CmBx_answer_edit_con = new System.Windows.Forms.ComboBox();
+            this.CmBx_question_edit_con = new System.Windows.Forms.ComboBox();
             this.Btn_sort_answ_lan = new System.Windows.Forms.Button();
             this.label9 = new System.Windows.Forms.Label();
-            this.comboBox9 = new System.Windows.Forms.ComboBox();
-            this.comboBox10 = new System.Windows.Forms.ComboBox();
-            this.textBox3 = new System.Windows.Forms.TextBox();
-            this.comboBox11 = new System.Windows.Forms.ComboBox();
+            this.CmBx_Answer_edit_tran = new System.Windows.Forms.ComboBox();
+            this.CmBx_answer_tran_edit = new System.Windows.Forms.ComboBox();
+            this.Tx_edit_answer_tran = new System.Windows.Forms.TextBox();
+            this.CmBx_Language_edit_tran = new System.Windows.Forms.ComboBox();
             this.Btn_sort_answ = new System.Windows.Forms.Button();
             this.label10 = new System.Windows.Forms.Label();
-            this.comboBox13 = new System.Windows.Forms.ComboBox();
-            this.textBox4 = new System.Windows.Forms.TextBox();
+            this.CmBx_edit_Answer = new System.Windows.Forms.ComboBox();
+            this.Tx_edit_answer = new System.Windows.Forms.TextBox();
             this.Btn_delete_answ = new System.Windows.Forms.Button();
             this.Btn_delete_answ_quest = new System.Windows.Forms.Button();
             this.Btn_delete_answ_lan = new System.Windows.Forms.Button();
@@ -289,12 +287,12 @@
             this.label1.TabIndex = 32;
             this.label1.Text = "Ustvari odgovor";
             // 
-            // textBox1
+            // Tx_create_answer
             // 
-            this.textBox1.Location = new System.Drawing.Point(374, 29);
-            this.textBox1.Name = "textBox1";
-            this.textBox1.Size = new System.Drawing.Size(100, 20);
-            this.textBox1.TabIndex = 29;
+            this.Tx_create_answer.Location = new System.Drawing.Point(374, 29);
+            this.Tx_create_answer.Name = "Tx_create_answer";
+            this.Tx_create_answer.Size = new System.Drawing.Size(100, 20);
+            this.Tx_create_answer.TabIndex = 29;
             // 
             // Btn_create_trans_answer
             // 
@@ -315,46 +313,38 @@
             this.label4.TabIndex = 37;
             this.label4.Text = "Ustvari prevod za odgovor";
             // 
-            // comboBox1
+            // CmBx_Language_create_tran
             // 
-            this.comboBox1.FormattingEnabled = true;
-            this.comboBox1.Location = new System.Drawing.Point(374, 180);
-            this.comboBox1.Name = "comboBox1";
-            this.comboBox1.Size = new System.Drawing.Size(121, 21);
-            this.comboBox1.TabIndex = 36;
+            this.CmBx_Language_create_tran.FormattingEnabled = true;
+            this.CmBx_Language_create_tran.Location = new System.Drawing.Point(374, 180);
+            this.CmBx_Language_create_tran.Name = "CmBx_Language_create_tran";
+            this.CmBx_Language_create_tran.Size = new System.Drawing.Size(121, 21);
+            this.CmBx_Language_create_tran.TabIndex = 36;
             // 
-            // comboBox2
+            // CmBx_Answer_create_tran
             // 
-            this.comboBox2.FormattingEnabled = true;
-            this.comboBox2.Location = new System.Drawing.Point(374, 153);
-            this.comboBox2.Name = "comboBox2";
-            this.comboBox2.Size = new System.Drawing.Size(121, 21);
-            this.comboBox2.TabIndex = 35;
+            this.CmBx_Answer_create_tran.FormattingEnabled = true;
+            this.CmBx_Answer_create_tran.Location = new System.Drawing.Point(374, 153);
+            this.CmBx_Answer_create_tran.Name = "CmBx_Answer_create_tran";
+            this.CmBx_Answer_create_tran.Size = new System.Drawing.Size(121, 21);
+            this.CmBx_Answer_create_tran.TabIndex = 35;
             // 
-            // textBox2
+            // Tx_create_answer_tran
             // 
-            this.textBox2.Location = new System.Drawing.Point(374, 127);
-            this.textBox2.Name = "textBox2";
-            this.textBox2.Size = new System.Drawing.Size(100, 20);
-            this.textBox2.TabIndex = 34;
+            this.Tx_create_answer_tran.Location = new System.Drawing.Point(374, 127);
+            this.Tx_create_answer_tran.Name = "Tx_create_answer_tran";
+            this.Tx_create_answer_tran.Size = new System.Drawing.Size(100, 20);
+            this.Tx_create_answer_tran.TabIndex = 34;
             // 
             // Btn_create_answ_lan
             // 
-            this.Btn_create_answ_lan.Location = new System.Drawing.Point(374, 346);
+            this.Btn_create_answ_lan.Location = new System.Drawing.Point(374, 317);
             this.Btn_create_answ_lan.Name = "Btn_create_answ_lan";
             this.Btn_create_answ_lan.Size = new System.Drawing.Size(75, 23);
             this.Btn_create_answ_lan.TabIndex = 44;
             this.Btn_create_answ_lan.Text = "Ustvari";
             this.Btn_create_answ_lan.UseVisualStyleBackColor = true;
             this.Btn_create_answ_lan.Click += new System.EventHandler(this.Btn_create_answ_lan_Click);
-            // 
-            // comboBox3
-            // 
-            this.comboBox3.FormattingEnabled = true;
-            this.comboBox3.Location = new System.Drawing.Point(374, 319);
-            this.comboBox3.Name = "comboBox3";
-            this.comboBox3.Size = new System.Drawing.Size(121, 21);
-            this.comboBox3.TabIndex = 42;
             // 
             // label7
             // 
@@ -365,21 +355,21 @@
             this.label7.TabIndex = 41;
             this.label7.Text = "Poveži vprašanje z odgovorom";
             // 
-            // comboBox4
+            // CmBx_answer_create_con
             // 
-            this.comboBox4.FormattingEnabled = true;
-            this.comboBox4.Location = new System.Drawing.Point(374, 290);
-            this.comboBox4.Name = "comboBox4";
-            this.comboBox4.Size = new System.Drawing.Size(121, 21);
-            this.comboBox4.TabIndex = 40;
+            this.CmBx_answer_create_con.FormattingEnabled = true;
+            this.CmBx_answer_create_con.Location = new System.Drawing.Point(374, 290);
+            this.CmBx_answer_create_con.Name = "CmBx_answer_create_con";
+            this.CmBx_answer_create_con.Size = new System.Drawing.Size(121, 21);
+            this.CmBx_answer_create_con.TabIndex = 40;
             // 
-            // comboBox5
+            // CmBx_question_create_con
             // 
-            this.comboBox5.FormattingEnabled = true;
-            this.comboBox5.Location = new System.Drawing.Point(374, 263);
-            this.comboBox5.Name = "comboBox5";
-            this.comboBox5.Size = new System.Drawing.Size(121, 21);
-            this.comboBox5.TabIndex = 39;
+            this.CmBx_question_create_con.FormattingEnabled = true;
+            this.CmBx_question_create_con.Location = new System.Drawing.Point(374, 263);
+            this.CmBx_question_create_con.Name = "CmBx_question_create_con";
+            this.CmBx_question_create_con.Size = new System.Drawing.Size(121, 21);
+            this.CmBx_question_create_con.TabIndex = 39;
             // 
             // Btn_delete_quest_lan
             // 
@@ -403,21 +393,13 @@
             // 
             // Btn_sort_answ_quest
             // 
-            this.Btn_sort_answ_quest.Location = new System.Drawing.Point(583, 450);
+            this.Btn_sort_answ_quest.Location = new System.Drawing.Point(583, 421);
             this.Btn_sort_answ_quest.Name = "Btn_sort_answ_quest";
             this.Btn_sort_answ_quest.Size = new System.Drawing.Size(75, 23);
             this.Btn_sort_answ_quest.TabIndex = 51;
             this.Btn_sort_answ_quest.Text = "Ustvari";
             this.Btn_sort_answ_quest.UseVisualStyleBackColor = true;
             this.Btn_sort_answ_quest.Click += new System.EventHandler(this.Btn_sort_answ_quest_Click);
-            // 
-            // comboBox6
-            // 
-            this.comboBox6.FormattingEnabled = true;
-            this.comboBox6.Location = new System.Drawing.Point(583, 423);
-            this.comboBox6.Name = "comboBox6";
-            this.comboBox6.Size = new System.Drawing.Size(121, 21);
-            this.comboBox6.TabIndex = 50;
             // 
             // label8
             // 
@@ -428,21 +410,21 @@
             this.label8.TabIndex = 49;
             this.label8.Text = "Uredi prevod za vprašanje";
             // 
-            // comboBox7
+            // CmBx_answer_edit_con
             // 
-            this.comboBox7.FormattingEnabled = true;
-            this.comboBox7.Location = new System.Drawing.Point(583, 394);
-            this.comboBox7.Name = "comboBox7";
-            this.comboBox7.Size = new System.Drawing.Size(121, 21);
-            this.comboBox7.TabIndex = 48;
+            this.CmBx_answer_edit_con.FormattingEnabled = true;
+            this.CmBx_answer_edit_con.Location = new System.Drawing.Point(583, 394);
+            this.CmBx_answer_edit_con.Name = "CmBx_answer_edit_con";
+            this.CmBx_answer_edit_con.Size = new System.Drawing.Size(121, 21);
+            this.CmBx_answer_edit_con.TabIndex = 48;
             // 
-            // comboBox8
+            // CmBx_question_edit_con
             // 
-            this.comboBox8.FormattingEnabled = true;
-            this.comboBox8.Location = new System.Drawing.Point(583, 367);
-            this.comboBox8.Name = "comboBox8";
-            this.comboBox8.Size = new System.Drawing.Size(121, 21);
-            this.comboBox8.TabIndex = 47;
+            this.CmBx_question_edit_con.FormattingEnabled = true;
+            this.CmBx_question_edit_con.Location = new System.Drawing.Point(583, 367);
+            this.CmBx_question_edit_con.Name = "CmBx_question_edit_con";
+            this.CmBx_question_edit_con.Size = new System.Drawing.Size(121, 21);
+            this.CmBx_question_edit_con.TabIndex = 47;
             // 
             // Btn_sort_answ_lan
             // 
@@ -463,36 +445,36 @@
             this.label9.TabIndex = 55;
             this.label9.Text = "Uredi prevod za odgovor";
             // 
-            // comboBox9
+            // CmBx_Answer_edit_tran
             // 
-            this.comboBox9.FormattingEnabled = true;
-            this.comboBox9.Location = new System.Drawing.Point(583, 230);
-            this.comboBox9.Name = "comboBox9";
-            this.comboBox9.Size = new System.Drawing.Size(121, 21);
-            this.comboBox9.TabIndex = 54;
+            this.CmBx_Answer_edit_tran.FormattingEnabled = true;
+            this.CmBx_Answer_edit_tran.Location = new System.Drawing.Point(583, 230);
+            this.CmBx_Answer_edit_tran.Name = "CmBx_Answer_edit_tran";
+            this.CmBx_Answer_edit_tran.Size = new System.Drawing.Size(121, 21);
+            this.CmBx_Answer_edit_tran.TabIndex = 54;
             // 
-            // comboBox10
+            // CmBx_answer_tran_edit
             // 
-            this.comboBox10.FormattingEnabled = true;
-            this.comboBox10.Location = new System.Drawing.Point(583, 203);
-            this.comboBox10.Name = "comboBox10";
-            this.comboBox10.Size = new System.Drawing.Size(121, 21);
-            this.comboBox10.TabIndex = 53;
+            this.CmBx_answer_tran_edit.FormattingEnabled = true;
+            this.CmBx_answer_tran_edit.Location = new System.Drawing.Point(583, 203);
+            this.CmBx_answer_tran_edit.Name = "CmBx_answer_tran_edit";
+            this.CmBx_answer_tran_edit.Size = new System.Drawing.Size(121, 21);
+            this.CmBx_answer_tran_edit.TabIndex = 53;
             // 
-            // textBox3
+            // Tx_edit_answer_tran
             // 
-            this.textBox3.Location = new System.Drawing.Point(583, 177);
-            this.textBox3.Name = "textBox3";
-            this.textBox3.Size = new System.Drawing.Size(100, 20);
-            this.textBox3.TabIndex = 52;
+            this.Tx_edit_answer_tran.Location = new System.Drawing.Point(583, 177);
+            this.Tx_edit_answer_tran.Name = "Tx_edit_answer_tran";
+            this.Tx_edit_answer_tran.Size = new System.Drawing.Size(100, 20);
+            this.Tx_edit_answer_tran.TabIndex = 52;
             // 
-            // comboBox11
+            // CmBx_Language_edit_tran
             // 
-            this.comboBox11.FormattingEnabled = true;
-            this.comboBox11.Location = new System.Drawing.Point(583, 255);
-            this.comboBox11.Name = "comboBox11";
-            this.comboBox11.Size = new System.Drawing.Size(121, 21);
-            this.comboBox11.TabIndex = 57;
+            this.CmBx_Language_edit_tran.FormattingEnabled = true;
+            this.CmBx_Language_edit_tran.Location = new System.Drawing.Point(583, 255);
+            this.CmBx_Language_edit_tran.Name = "CmBx_Language_edit_tran";
+            this.CmBx_Language_edit_tran.Size = new System.Drawing.Size(121, 21);
+            this.CmBx_Language_edit_tran.TabIndex = 57;
             // 
             // Btn_sort_answ
             // 
@@ -513,20 +495,20 @@
             this.label10.TabIndex = 61;
             this.label10.Text = "Uredi prevod za odgovor";
             // 
-            // comboBox13
+            // CmBx_edit_Answer
             // 
-            this.comboBox13.FormattingEnabled = true;
-            this.comboBox13.Location = new System.Drawing.Point(583, 57);
-            this.comboBox13.Name = "comboBox13";
-            this.comboBox13.Size = new System.Drawing.Size(121, 21);
-            this.comboBox13.TabIndex = 59;
+            this.CmBx_edit_Answer.FormattingEnabled = true;
+            this.CmBx_edit_Answer.Location = new System.Drawing.Point(583, 57);
+            this.CmBx_edit_Answer.Name = "CmBx_edit_Answer";
+            this.CmBx_edit_Answer.Size = new System.Drawing.Size(121, 21);
+            this.CmBx_edit_Answer.TabIndex = 59;
             // 
-            // textBox4
+            // Tx_edit_answer
             // 
-            this.textBox4.Location = new System.Drawing.Point(583, 31);
-            this.textBox4.Name = "textBox4";
-            this.textBox4.Size = new System.Drawing.Size(100, 20);
-            this.textBox4.TabIndex = 58;
+            this.Tx_edit_answer.Location = new System.Drawing.Point(583, 31);
+            this.Tx_edit_answer.Name = "Tx_edit_answer";
+            this.Tx_edit_answer.Size = new System.Drawing.Size(100, 20);
+            this.Tx_edit_answer.TabIndex = 58;
             // 
             // Btn_delete_answ
             // 
@@ -540,7 +522,7 @@
             // 
             // Btn_delete_answ_quest
             // 
-            this.Btn_delete_answ_quest.Location = new System.Drawing.Point(583, 479);
+            this.Btn_delete_answ_quest.Location = new System.Drawing.Point(583, 450);
             this.Btn_delete_answ_quest.Name = "Btn_delete_answ_quest";
             this.Btn_delete_answ_quest.Size = new System.Drawing.Size(75, 23);
             this.Btn_delete_answ_quest.TabIndex = 64;
@@ -579,34 +561,32 @@
             this.Controls.Add(this.Btn_delete_answ);
             this.Controls.Add(this.Btn_sort_answ);
             this.Controls.Add(this.label10);
-            this.Controls.Add(this.comboBox13);
-            this.Controls.Add(this.textBox4);
-            this.Controls.Add(this.comboBox11);
+            this.Controls.Add(this.CmBx_edit_Answer);
+            this.Controls.Add(this.Tx_edit_answer);
+            this.Controls.Add(this.CmBx_Language_edit_tran);
             this.Controls.Add(this.Btn_sort_answ_lan);
             this.Controls.Add(this.label9);
-            this.Controls.Add(this.comboBox9);
-            this.Controls.Add(this.comboBox10);
-            this.Controls.Add(this.textBox3);
+            this.Controls.Add(this.CmBx_Answer_edit_tran);
+            this.Controls.Add(this.CmBx_answer_tran_edit);
+            this.Controls.Add(this.Tx_edit_answer_tran);
             this.Controls.Add(this.Btn_sort_answ_quest);
-            this.Controls.Add(this.comboBox6);
             this.Controls.Add(this.label8);
-            this.Controls.Add(this.comboBox7);
-            this.Controls.Add(this.comboBox8);
+            this.Controls.Add(this.CmBx_answer_edit_con);
+            this.Controls.Add(this.CmBx_question_edit_con);
             this.Controls.Add(this.Btn_delete_quest);
             this.Controls.Add(this.Btn_delete_quest_lan);
             this.Controls.Add(this.Btn_create_answ_lan);
-            this.Controls.Add(this.comboBox3);
             this.Controls.Add(this.label7);
-            this.Controls.Add(this.comboBox4);
-            this.Controls.Add(this.comboBox5);
+            this.Controls.Add(this.CmBx_answer_create_con);
+            this.Controls.Add(this.CmBx_question_create_con);
             this.Controls.Add(this.Btn_create_trans_answer);
             this.Controls.Add(this.label4);
-            this.Controls.Add(this.comboBox1);
-            this.Controls.Add(this.comboBox2);
-            this.Controls.Add(this.textBox2);
+            this.Controls.Add(this.CmBx_Language_create_tran);
+            this.Controls.Add(this.CmBx_Answer_create_tran);
+            this.Controls.Add(this.Tx_create_answer_tran);
             this.Controls.Add(this.Btn_create_answ);
             this.Controls.Add(this.label1);
-            this.Controls.Add(this.textBox1);
+            this.Controls.Add(this.Tx_create_answer);
             this.Controls.Add(this.Btn_sort_quest_lan);
             this.Controls.Add(this.TxtBx_quest_trans);
             this.Controls.Add(this.CmbBx_edit_lan);
@@ -661,34 +641,32 @@
         private System.Windows.Forms.ComboBox CmbBx_edit_quest_3;
         private System.Windows.Forms.Button Btn_create_answ;
         private System.Windows.Forms.Label label1;
-        private System.Windows.Forms.TextBox textBox1;
+        private System.Windows.Forms.TextBox Tx_create_answer;
         private System.Windows.Forms.Button Btn_create_trans_answer;
         private System.Windows.Forms.Label label4;
-        private System.Windows.Forms.ComboBox comboBox1;
-        private System.Windows.Forms.ComboBox comboBox2;
-        private System.Windows.Forms.TextBox textBox2;
+        private System.Windows.Forms.ComboBox CmBx_Language_create_tran;
+        private System.Windows.Forms.ComboBox CmBx_Answer_create_tran;
+        private System.Windows.Forms.TextBox Tx_create_answer_tran;
         private System.Windows.Forms.Button Btn_create_answ_lan;
-        private System.Windows.Forms.ComboBox comboBox3;
         private System.Windows.Forms.Label label7;
-        private System.Windows.Forms.ComboBox comboBox4;
-        private System.Windows.Forms.ComboBox comboBox5;
+        private System.Windows.Forms.ComboBox CmBx_answer_create_con;
+        private System.Windows.Forms.ComboBox CmBx_question_create_con;
         private System.Windows.Forms.Button Btn_delete_quest_lan;
         private System.Windows.Forms.Button Btn_delete_quest;
         private System.Windows.Forms.Button Btn_sort_answ_quest;
-        private System.Windows.Forms.ComboBox comboBox6;
         private System.Windows.Forms.Label label8;
-        private System.Windows.Forms.ComboBox comboBox7;
-        private System.Windows.Forms.ComboBox comboBox8;
+        private System.Windows.Forms.ComboBox CmBx_answer_edit_con;
+        private System.Windows.Forms.ComboBox CmBx_question_edit_con;
         private System.Windows.Forms.Button Btn_sort_answ_lan;
         private System.Windows.Forms.Label label9;
-        private System.Windows.Forms.ComboBox comboBox9;
-        private System.Windows.Forms.ComboBox comboBox10;
-        private System.Windows.Forms.TextBox textBox3;
-        private System.Windows.Forms.ComboBox comboBox11;
+        private System.Windows.Forms.ComboBox CmBx_Answer_edit_tran;
+        private System.Windows.Forms.ComboBox CmBx_answer_tran_edit;
+        private System.Windows.Forms.TextBox Tx_edit_answer_tran;
+        private System.Windows.Forms.ComboBox CmBx_Language_edit_tran;
         private System.Windows.Forms.Button Btn_sort_answ;
         private System.Windows.Forms.Label label10;
-        private System.Windows.Forms.ComboBox comboBox13;
-        private System.Windows.Forms.TextBox textBox4;
+        private System.Windows.Forms.ComboBox CmBx_edit_Answer;
+        private System.Windows.Forms.TextBox Tx_edit_answer;
         private System.Windows.Forms.Button Btn_delete_answ;
         private System.Windows.Forms.Button Btn_delete_answ_quest;
         private System.Windows.Forms.Button Btn_delete_answ_lan;

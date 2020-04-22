@@ -26,7 +26,7 @@ namespace medical_project_real
             CmbBx_edit_quest_3.Items.AddRange(dat.get_quest().ToArray());
             CmbBx_edit_categories.Items.AddRange(dat.get_categories().ToArray());
             CmbBx_edit_quest_type2.Items.AddRange(dat.get_types().ToArray());
-            CmbBx_edit_lan.Items.AddRange(dat.get_languages().ToArray());
+            CmbBx_edit_lan.Items.AddRange(dat.get_quest_trans().ToArray());
         }
 
         private void Btn_save_quest_Click(object sender, EventArgs e)
@@ -43,7 +43,8 @@ namespace medical_project_real
         }
 
         private void Button1_Click(object sender, EventArgs e)
-        { 
+        {
+            CmbBx_edit_lan.Items.Clear();
             CmbBx_quest_lang.Items.Clear();
             CmbBx_edit_quest_trans.Items.Clear();
 
@@ -51,6 +52,7 @@ namespace medical_project_real
 
             CmbBx_quest_lang.Items.AddRange(dat.get_quest_trans().ToArray());
             CmbBx_edit_quest_trans.Items.AddRange(dat.get_quest_trans().ToArray());
+            CmbBx_edit_lan.Items.AddRange(dat.get_quest_trans().ToArray());
         }
 
         private void Button2_Click(object sender, EventArgs e)
@@ -68,6 +70,7 @@ namespace medical_project_real
 
         private void Button3_Click(object sender, EventArgs e)
         {
+            CmbBx_edit_lan.Items.Clear();
             CmbBx_quest_lang.Items.Clear();
             CmbBx_edit_quest_trans.Items.Clear();
 
@@ -75,6 +78,7 @@ namespace medical_project_real
 
             CmbBx_quest_lang.Items.AddRange(dat.get_quest_trans().ToArray());
             CmbBx_edit_quest_trans.Items.AddRange(dat.get_quest_trans().ToArray());
+            CmbBx_edit_lan.Items.AddRange(dat.get_quest_trans().ToArray());
         }
 
         private void Btn_delete_quest_Click(object sender, EventArgs e)
@@ -92,6 +96,7 @@ namespace medical_project_real
 
         private void Btn_delete_quest_lan_Click(object sender, EventArgs e)
         {
+            CmbBx_edit_lan.Items.Clear();
             CmbBx_quest_lang.Items.Clear();
             CmbBx_edit_quest_trans.Items.Clear();
 
@@ -99,6 +104,7 @@ namespace medical_project_real
 
             CmbBx_quest_lang.Items.AddRange(dat.get_quest_trans().ToArray());
             CmbBx_edit_quest_trans.Items.AddRange(dat.get_quest_trans().ToArray());
+            CmbBx_edit_lan.Items.AddRange(dat.get_quest_trans().ToArray());
         }
 
         private void Btn_create_answ_Click(object sender, EventArgs e)
@@ -148,7 +154,7 @@ namespace medical_project_real
 
         private void Btn_back_Click(object sender, EventArgs e)
         {
-
+            this.Close();
         }
     }
 }
