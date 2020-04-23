@@ -82,7 +82,6 @@
             this.Btn_delete_answ_quest = new System.Windows.Forms.Button();
             this.Btn_delete_answ_lan = new System.Windows.Forms.Button();
             this.Btn_back = new System.Windows.Forms.Button();
-            this.comboBox1 = new System.Windows.Forms.ComboBox();
             this.SuspendLayout();
             // 
             // TxtBx_Quest
@@ -394,7 +393,7 @@
             // 
             // Btn_sort_answ_quest
             // 
-            this.Btn_sort_answ_quest.Location = new System.Drawing.Point(583, 450);
+            this.Btn_sort_answ_quest.Location = new System.Drawing.Point(583, 421);
             this.Btn_sort_answ_quest.Name = "Btn_sort_answ_quest";
             this.Btn_sort_answ_quest.Size = new System.Drawing.Size(75, 23);
             this.Btn_sort_answ_quest.TabIndex = 51;
@@ -407,9 +406,9 @@
             this.label8.AutoSize = true;
             this.label8.Location = new System.Drawing.Point(580, 346);
             this.label8.Name = "label8";
-            this.label8.Size = new System.Drawing.Size(131, 13);
+            this.label8.Size = new System.Drawing.Size(86, 13);
             this.label8.TabIndex = 49;
-            this.label8.Text = "Uredi prevod za vprašanje";
+            this.label8.Text = "Uredu povezavo";
             // 
             // CmBx_answer_edit_con
             // 
@@ -492,9 +491,9 @@
             this.label10.AutoSize = true;
             this.label10.Location = new System.Drawing.Point(580, 15);
             this.label10.Name = "label10";
-            this.label10.Size = new System.Drawing.Size(124, 13);
+            this.label10.Size = new System.Drawing.Size(74, 13);
             this.label10.TabIndex = 61;
-            this.label10.Text = "Uredi prevod za odgovor";
+            this.label10.Text = "Uredi odgovor";
             // 
             // CmBx_edit_Answer
             // 
@@ -523,7 +522,7 @@
             // 
             // Btn_delete_answ_quest
             // 
-            this.Btn_delete_answ_quest.Location = new System.Drawing.Point(583, 479);
+            this.Btn_delete_answ_quest.Location = new System.Drawing.Point(583, 450);
             this.Btn_delete_answ_quest.Name = "Btn_delete_answ_quest";
             this.Btn_delete_answ_quest.Size = new System.Drawing.Size(75, 23);
             this.Btn_delete_answ_quest.TabIndex = 64;
@@ -551,20 +550,11 @@
             this.Btn_back.UseVisualStyleBackColor = true;
             this.Btn_back.Click += new System.EventHandler(this.Btn_back_Click);
             // 
-            // comboBox1
-            // 
-            this.comboBox1.FormattingEnabled = true;
-            this.comboBox1.Location = new System.Drawing.Point(583, 423);
-            this.comboBox1.Name = "comboBox1";
-            this.comboBox1.Size = new System.Drawing.Size(121, 21);
-            this.comboBox1.TabIndex = 67;
-            // 
             // Question_form
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(751, 522);
-            this.Controls.Add(this.comboBox1);
             this.Controls.Add(this.Btn_back);
             this.Controls.Add(this.Btn_delete_answ_lan);
             this.Controls.Add(this.Btn_delete_answ_quest);
@@ -681,6 +671,5 @@
         private System.Windows.Forms.Button Btn_delete_answ_quest;
         private System.Windows.Forms.Button Btn_delete_answ_lan;
         private System.Windows.Forms.Button Btn_back;
-        private System.Windows.Forms.ComboBox comboBox1;
     }
 }

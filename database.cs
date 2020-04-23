@@ -927,9 +927,61 @@ namespace medical_project_real
             return listek;
         }
 
+        public List<String> get_answer_trans()
+        {
+            List<String> listek = new List<String>();
+            try
+            {
+                using (SQLiteConnection con = new SQLiteConnection("data source= questionsAnswers.db"))
+                {
+                    con.Open();
+                    using (SQLiteCommand comm = new SQLiteCommand(con))
+                    {
+                        comm.CommandText = "SELECT text FROM Answers_languages";
+                        SQLiteDataReader rd = comm.ExecuteReader();
+                        while (rd.Read())
+                        {
+                            listek.Add(rd.GetString(0).ToString());
+                        }
+                    }
+                }
+            }
+            catch (SQLiteException e)
+            {
+                MessageBox.Show(e.ToString());
+            }
+            return listek;
+        }
+
+        public List<String> get_conn_answer()
+        {
+            List<String> listek = new List<String>();
+            try
+            {
+                using (SQLiteConnection con = new SQLiteConnection("data source= questionsAnswers.db"))
+                {
+                    con.Open();
+                    using (SQLiteCommand comm = new SQLiteCommand(con))
+                    {
+                        comm.CommandText = "SELECT description FROM Answers";
+                        SQLiteDataReader rd = comm.ExecuteReader();
+                        while (rd.Read())
+                        {
+                            listek.Add(rd.GetString(0).ToString());
+                        }
+                    }
+                }
+            }
+            catch (SQLiteException e)
+            {
+                MessageBox.Show(e.ToString());
+            }
+            return listek;
+        }
+
         public int get_answer_id(string xname)
         {
-            int id = 0;
+        int id = 0;
             try
             {
                 using (SQLiteConnection con = new SQLiteConnection("data source= questionsAnswers.db"))
@@ -1050,7 +1102,7 @@ namespace medical_project_real
             }
         }
 
-        public void insert_conn_answer_quest(int quest_id, int answer_id, int con_id)
+        public void update_conn_answer_quest(int quest_id, int answer_id)
         {
             try
             {
@@ -1059,10 +1111,11 @@ namespace medical_project_real
                     con.Open();
                     using (SQLiteCommand comm = new SQLiteCommand(con))
                     {
-                        comm.CommandText = "UPDATE Questions_Answers SET Answer_id = @1, Question_id = @2 WHERE id = @3";
+                        comm.CommandText = "UPDATE Questions_Answers SET Answer_id = @1, Question_id = @2 WHERE Answer_id = @3 AND Question_id = @4";
                         comm.Parameters.AddWithValue("@1", answer_id);
                         comm.Parameters.AddWithValue("@2", quest_id);
-                        comm.Parameters.AddWithValue("@3", con_id);
+                        comm.Parameters.AddWithValue("@3", answer_id);
+                        comm.Parameters.AddWithValue("@4", quest_id);
                         comm.ExecuteNonQuery();
                     }
                 }
@@ -1071,6 +1124,55 @@ namespace medical_project_real
             {
                 MessageBox.Show(e.ToString());
             }
+        }
+
+        public void delete_conn_answer_quest(int quest_id, int answer_id)
+        {
+            try
+            {
+                using (SQLiteConnection con = new SQLiteConnection("data source= questionsAnswers.db"))
+                {
+                    con.Open();
+                    using (SQLiteCommand comm = new SQLiteCommand(con))
+                    {
+                        comm.CommandText = "DELETE Questions_Answers WHERE Answer_id = @1 AND Question_id = @2;";
+                        comm.Parameters.AddWithValue("@1", answer_id);
+                        comm.Parameters.AddWithValue("@2", quest_id);
+                        comm.ExecuteNonQuery();
+                    }
+                }
+            }
+            catch (SQLiteException e)
+            {
+                MessageBox.Show(e.ToString());
+            }
+        }
+
+        public int get_answer_trans_id(string xname)
+        {
+            int id = 0;
+            try
+            {
+                using (SQLiteConnection con = new SQLiteConnection("data source= questionsAnswers.db"))
+                {
+                    con.Open();
+                    using (SQLiteCommand comm = new SQLiteCommand(con))
+                    {
+                        comm.CommandText = "SELECT id FROM Answers_Languages WHERE text = @1";
+                        comm.Parameters.AddWithValue("@1", xname);
+                        SQLiteDataReader rd = comm.ExecuteReader();
+                        while (rd.Read())
+                        {
+                            id = rd.GetInt32(0);
+                        }
+                    }
+                }
+            }
+            catch (SQLiteException e)
+            {
+                MessageBox.Show(e.ToString());
+            }
+            return id;
         }
         //
     }
